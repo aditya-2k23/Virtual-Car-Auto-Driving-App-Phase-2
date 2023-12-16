@@ -23,7 +23,7 @@ class Point {
     }
     if (fill) {
       ctx.beginPath();
-      ctx.arc(this.x, this.y, rad * 0.5, 0, Math.PI * 2);
+      ctx.arc(this.x, this.y, rad * 0.6, 0, Math.PI * 2);
       ctx.fillStyle = "lightblue";
       ctx.fill();
     }
