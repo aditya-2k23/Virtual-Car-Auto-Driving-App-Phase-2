@@ -18,6 +18,8 @@ class GraphEditor {
         // right click
         if (this.hovered) {
           this.#removePoint(this.hovered);
+        } else {
+          this.selected = null;
         }
       }
       if (evt.button == 0) {
