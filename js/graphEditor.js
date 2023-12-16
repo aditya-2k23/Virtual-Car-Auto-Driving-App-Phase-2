@@ -24,6 +24,9 @@ class GraphEditor {
         // left click
         const mouse = new Point(evt.offsetX, evt.offsetY);
         if (this.hovered) {
+          if (this.selected) {
+            this.graph.tryAddSegment(new Segment(this.selected, this.hovered));
+          }
           this.selected = this.hovered;
           this.dragging = true;
           return;
@@ -45,7 +48,7 @@ class GraphEditor {
       }
     });
     this.canvas.addEventListener("contextmenu", (evt) => evt.preventDefault());
-    this.canvas.addEventListener("mouseup", () => this.dragging = false);
+    this.canvas.addEventListener("mouseup", () => (this.dragging = false));
   }
 
   #removePoint(point) {
