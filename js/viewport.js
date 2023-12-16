@@ -4,7 +4,8 @@ class Viewport {
     this.ctx = this.canvas.getContext("2d");
 
     this.zoom = 1;
-    this.offset = new Point(0, 0);
+    this.center = new Point(canvas.width / 2, canvas.height / 2);
+    this.offset = scale(this.center, -1);
 
     this.drag = {
       start: new Point(0, 0),
@@ -66,6 +67,6 @@ class Viewport {
     const step = 0.1;
     this.zoom += dir * step;
     this.zoom = Math.max(1, Math.min(5, this.zoom));
-    console.log(this.zoom);
+    // console.log(this.zoom);
   }
 }
