@@ -50,7 +50,7 @@ class Viewport {
   }
 
   #handleMouseDown(evt) {
-    if (evt.button == 2) {
+    if (evt.button == 2 || evt.button == 1) {
       // right click
       this.drag.start = this.getMouse(evt);
       this.drag.active = true;
