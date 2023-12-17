@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>World Editor</title>
   <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
   <h1>World Editor</h1>
   <canvas id="myCanvas"></canvas>
@@ -29,9 +31,11 @@
 
     const ctx = myCanvas.getContext('2d');
 
-    const graphString = localStorage.getItem('graph');
+    const graphString = localStorage.getItem("graph");
     const graphInfo = graphString ? JSON.parse(graphString) : null;
-    const graph = graphInfo ? Graph.load(graphInfo) : new Graph();
+    const graph = graphInfo
+      ? Graph.load(graphInfo)
+      : new Graph();
     const world = new World(graph);
 
     const viewport = new Viewport(myCanvas);
@@ -43,18 +47,19 @@
       viewport.reset();
       world.generate();
       world.draw(ctx);
+      ctx.globalAlpha = 0.3;
       graphEditor.display();
       requestAnimationFrame(animate);
     }
-    // graph.draw(ctx);
 
     function dispose() {
       graphEditor.dispose();
     }
 
     function save() {
-      localStorage.setItem('graph', JSON.stringify(graph));
+      localStorage.setItem("graph", JSON.stringify(graph));
     }
   </script>
 </body>
+
 </html>

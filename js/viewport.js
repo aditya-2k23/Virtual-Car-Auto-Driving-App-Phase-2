@@ -1,7 +1,7 @@
 class Viewport {
   constructor(canvas) {
     this.canvas = canvas;
-    this.ctx = this.canvas.getContext("2d");
+    this.ctx = canvas.getContext("2d");
 
     this.zoom = 1;
     this.center = new Point(canvas.width / 2, canvas.height / 2);
@@ -50,8 +50,8 @@ class Viewport {
   }
 
   #handleMouseDown(evt) {
-    if (evt.button == 2 || evt.button == 1) {
-      // right click
+    if (evt.button == 1) {
+      // middle button
       this.drag.start = this.getMouse(evt);
       this.drag.active = true;
     }
@@ -81,6 +81,5 @@ class Viewport {
     const step = 0.1;
     this.zoom += dir * step;
     this.zoom = Math.max(1, Math.min(5, this.zoom));
-    // console.log(this.zoom);
   }
 }
