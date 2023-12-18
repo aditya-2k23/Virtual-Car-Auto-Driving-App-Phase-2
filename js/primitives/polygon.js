@@ -8,9 +8,9 @@ class Polygon {
   }
 
   static union(polys) {
-    Polygon.multiBreak(polys);
+    Polygon.multibreak(polys);
     const keptSegments = [];
-    for (let i = 0; i < polys.lenght; i++) {
+    for (let i = 0; i < polys.length; i++) {
       for (const seg of polys[i].segments) {
         let keep = true;
         for (let j = 0; j < polys.length; j++) {
@@ -29,8 +29,8 @@ class Polygon {
     return keptSegments;
   }
 
-  static multiBreak(polys) {
-    for (let i = 0; i < polys.length - 1; i++) {
+  static multibreak(polys) {
+    for (let i = 0; i < polys.length; i++) {
       for (let j = i + 1; j < polys.length; j++) {
         Polygon.break(polys[i], polys[j]);
       }

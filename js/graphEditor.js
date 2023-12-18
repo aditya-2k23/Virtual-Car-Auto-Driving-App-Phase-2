@@ -71,6 +71,18 @@ class GraphEditor {
     }
   }
 
+  getMouse(evt, subtractDragOffset = false) {
+    const p = new Point(
+      (evt.offsetX - this.center.x) * this.zoom - this.offset.x,
+      (evt.offsetY - this.center.y) * this.zoom - this.offset.y
+    );
+    return subtractDragOffset ? subtract(p, this.drag.offset) : p;
+  }
+
+  getOffset() {
+    return add(this.offset, this.drag.offset);
+  }
+
   dispose() {
     this.graph.dispose();
     this.selected = null;

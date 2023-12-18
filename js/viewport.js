@@ -50,7 +50,7 @@ class Viewport {
   }
 
   #handleMouseDown(evt) {
-    if (evt.button == 1) {
+    if (evt.button == 1 || evt.button == 2) {
       // middle button
       this.drag.start = this.getMouse(evt);
       this.drag.active = true;
