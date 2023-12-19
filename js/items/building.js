@@ -21,6 +21,10 @@ class Building {
       ]);
       sides.push(poly);
     }
+    sides.sort(
+      (a, b) => b.distanceToPoint(viewPoint) - a.distanceToPoint(viewPoint)
+    );
+
     this.base.draw(ctx, { fill: "white", stroke: "#AAA" });
     for (const side of sides) {
       side.draw(ctx, { fill: "white", stroke: "#AAA" });
