@@ -12,7 +12,9 @@ h1 {
   background-color: #2a5;
 }
 
-button {
+button,
+.file-input-label {
+  display: inline-block;
   background-color: #2a5;
   color: white;
   font-family: Arial;
@@ -33,5 +35,19 @@ button:hover {
 
 button:active {
   background-color: #1c6;
-  transform: translateY(-2px);
+  transform: translateY(-1px);
+}
+
+input[type="file"] {
+  display: none;
+}
+
+.file-input-label:hover {
+  background-color: #5c9;
+  transform: translateY(4px);
+}
+
+.file-input-label:active {
+  background-color: #1c6;
+  transform: translateY(-1px);
 }
