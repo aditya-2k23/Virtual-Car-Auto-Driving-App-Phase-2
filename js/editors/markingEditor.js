@@ -33,7 +33,6 @@ class MarkingEditor {
     this.boundContextMenu = (evt) => evt.preventDefault();
     this.canvas.addEventListener("mousedown", this.boundMouseDown);
     this.canvas.addEventListener("mousemove", this.boundMouseMove);
-    this.canvas.addEventListener("mouseup", this.boundMouseUp);
     this.canvas.addEventListener("contextmenu", this.boundContextMenu);
   }
 
@@ -71,6 +70,7 @@ class MarkingEditor {
       }
     }
     if (evt.button == 2) {
+      // right click
       for (let i = 0; i < this.markings.length; i++) {
         const poly = this.markings[i].poly;
         if (poly.containsPoint(this.mouse)) {
