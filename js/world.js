@@ -201,9 +201,5 @@ class World {
     for (const item of items) {
       item.draw(ctx, viewPoint);
     }
-
-    for (const seg of this.laneGuides) {
-      seg.draw(ctx, { color: "red" });
-    }
   }
 }
