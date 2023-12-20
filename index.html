@@ -47,6 +47,9 @@
     const graphEditor = new GraphEditor(viewport, graph);
 
     let oldGraphHash = graph.hash();
+
+    setMode("graph");
+
     animate();
 
     function animate() {
@@ -76,6 +79,7 @@
         case "graph":
           graphBtn.style.backgroundColor = "#2a5";
           graphBtn.style.filter = "";
+          graphEditor.enable();
           break;
         case "stop":
           stopBtn.style.backgroundColor = "#2a5";
@@ -87,6 +91,7 @@
     function dissableEditors() {
       graphBtn.style.backgroundColor = "gray";
       graphBtn.style.filter = "grayscale(100%)";
+      graphEditor.disable();
       stopBtn.style.backgroundColor = "gray";
       stopBtn.style.filter = "grayscale(100%)";
     }
