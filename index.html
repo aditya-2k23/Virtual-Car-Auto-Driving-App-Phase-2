@@ -69,6 +69,27 @@
     function save() {
       localStorage.setItem("graph", JSON.stringify(graph));
     }
+
+    function setMode(mode) {
+      dissableEditors();
+      switch (mode) {
+        case "graph":
+          graphBtn.style.backgroundColor = "#2a5";
+          graphBtn.style.filter = "";
+          break;
+        case "stop":
+          stopBtn.style.backgroundColor = "#2a5";
+          stopBtn.style.filter = "";
+          break;
+      }
+    }
+
+    function dissableEditors() {
+      graphBtn.style.backgroundColor = "gray";
+      graphBtn.style.filter = "grayscale(100%)";
+      stopBtn.style.backgroundColor = "gray";
+      stopBtn.style.filter = "grayscale(100%)";
+    }
   </script>
 </body>
 
