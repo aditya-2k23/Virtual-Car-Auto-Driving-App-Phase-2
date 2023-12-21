@@ -27,7 +27,7 @@ if (localStorage.getItem("bestBrain")) {
 }
 
 const traffic = [];
-const roadBorders = [];
+const roadBorders = world.roadBorders.map((s) => [s.p1, s.p2]);
 
 animate();
 
