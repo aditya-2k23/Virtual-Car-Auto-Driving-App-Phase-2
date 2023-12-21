@@ -63,19 +63,19 @@ function animate(time) {
   }
   bestCar = cars.find((c) => c.y == Math.min(...cars.map((c) => c.y)));
 
+  world.cars = cars;
+  world.bestCar = bestCar;
+
+  viewport.offset.x = -bestCar.x;
+  viewport.offset.y = -bestCar.y;
+
   viewport.reset();
   const viewPoint = scale(viewport.getOffset(), -1);
-  world.draw(carCtx, viewPoint);
+  world.draw(carCtx, viewPoint, false);
 
   for (let i = 0; i < traffic.length; i++) {
     traffic[i].draw(carCtx);
   }
-  carCtx.globalAlpha = 0.2;
-  for (let i = 0; i < cars.length; i++) {
-    cars[i].draw(carCtx);
-  }
-  carCtx.globalAlpha = 1;
-  bestCar.draw(carCtx, true);
 
   networkCtx.lineDashOffset = -time / 50;
   networkCtx.clearRect(0, 0, networkCanvas.width, networkCanvas.height);
