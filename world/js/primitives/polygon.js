@@ -12,7 +12,7 @@ class Polygon {
   }
 
   static union(polys) {
-    Polygon.multibreak(polys);
+    Polygon.multiBreak(polys);
     const keptSegments = [];
     for (let i = 0; i < polys.length; i++) {
       for (const seg of polys[i].segments) {
@@ -33,8 +33,8 @@ class Polygon {
     return keptSegments;
   }
 
-  static multibreak(polys) {
-    for (let i = 0; i < polys.length; i++) {
+  static multiBreak(polys) {
+    for (let i = 0; i < polys.length - 1; i++) {
       for (let j = i + 1; j < polys.length; j++) {
         Polygon.break(polys[i], polys[j]);
       }
@@ -110,12 +110,18 @@ class Polygon {
 
   draw(
     ctx,
-    { stroke = "blue", lineWidth = 2, fill = "rgba(0, 0, 255, 0.3)" } = {}
+    {
+      stroke = "blue",
+      lineWidth = 2,
+      fill = "rgba(0,0,255,0.3)",
+      join = "miter",
+    } = {}
   ) {
     ctx.beginPath();
     ctx.fillStyle = fill;
     ctx.strokeStyle = stroke;
     ctx.lineWidth = lineWidth;
+    ctx.lineJoin = join;
     ctx.moveTo(this.points[0].x, this.points[0].y);
     for (let i = 1; i < this.points.length; i++) {
       ctx.lineTo(this.points[i].x, this.points[i].y);

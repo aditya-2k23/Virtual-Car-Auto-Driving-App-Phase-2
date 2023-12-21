@@ -1,6 +1,6 @@
 const Osm = {
   parseRoads: (data) => {
-    const nodes = data.elements.filter((n) => (n.type = "node"));
+    const nodes = data.elements.filter((n) => n.type == "node");
 
     const lats = nodes.map((n) => n.lat);
     const lons = nodes.map((n) => n.lon);
