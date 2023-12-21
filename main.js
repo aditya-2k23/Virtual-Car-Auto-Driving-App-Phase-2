@@ -14,7 +14,7 @@ const worldInfo = worldString ? JSON.parse(worldString) : null;
 const world = worldInfo ? World.load(worldInfo) : new World(new Graph());
 const viewport = new Viewport(carCanvas, world.zoom, world.offset);
 
-const N = 1;
+const N = 100;
 const cars = generateCars(N);
 let bestCar = cars[0];
 if (localStorage.getItem("bestBrain")) {
@@ -49,7 +49,7 @@ function generateCars(N) {
 
   const cars = [];
   for (let i = 1; i <= N; i++) {
-    cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "KEYS", startAngle));
+    cars.push(new Car(startPoint.x, startPoint.y, 30, 50, "AI", startAngle));
   }
   return cars;
 }
@@ -61,7 +61,9 @@ function animate(time) {
   for (let i = 0; i < cars.length; i++) {
     cars[i].update(roadBorders, traffic);
   }
-  bestCar = cars.find((c) => c.y == Math.min(...cars.map((c) => c.y)));
+  bestCar = cars.find(
+    (c) => c.fittness == Math.max(...cars.map((c) => c.fittness))
+  );
 
   world.cars = cars;
   world.bestCar = bestCar;
