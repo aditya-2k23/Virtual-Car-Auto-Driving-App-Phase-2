@@ -18,6 +18,7 @@
       📁
       <input type="file" id="fileInput" accept=".world" onchange="load(event)">
     </label>
+    <button onclick="openOsmPanel()">🗺️</button>
     &nbsp;
     <button id="graphBtn" onclick="setMode('graph')">🌐</button>
     <button id="stopBtn" onclick="setMode('stop')">🛑</button>
@@ -27,6 +28,14 @@
     <button id="lightBtn" onclick="setMode('light')">🚦</button>
     <button id="startBtn" onclick="setMode('start')">🚙</button>
     <button id="targetBtn" onclick="setMode('target')">🎯</button>
+
+    <div id="osmPanel" style="display: none;">
+      <textarea placeholder="Paste OSM data here" id="osmDataContainer" cols="50" rows="10"></textarea>
+      <div>
+        <button onclick="parseOsmData()">✅</button>
+        <button onclick="closeOsmPanel()">❌</button>
+      </div>
+    </div>
   </div>
 
   <script src="js/world.js"></script>
@@ -158,6 +167,14 @@
         tool.button.style.filter = "grayscale(100%)";
         tool.editor.disable();
       }
+    }
+
+    function openOsmPanel() {
+      osmPanel.style.display = "block";
+    }
+
+    function closeOsmPanel() {
+      osmPanel.style.display = "none";
     }
   </script>
 </body>
