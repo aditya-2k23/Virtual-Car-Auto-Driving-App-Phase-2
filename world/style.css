@@ -12,6 +12,10 @@ h1 {
   background-color: #2a5;
 }
 
+#myCanvas:active {
+  cursor: -webkit-grabbing;
+}
+
 button,
 .file-input-label {
   display: inline-block;
