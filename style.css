@@ -24,7 +24,8 @@ button:hover {
   background: blue;
 }
 
-#networkCanvas {
+#networkCanvas,
+#miniMapCanvas {
   background: black;
 }
 
