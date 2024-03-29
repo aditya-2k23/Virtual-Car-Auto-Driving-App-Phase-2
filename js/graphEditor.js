@@ -42,7 +42,9 @@ class GraphEditor {
   #removePoint(point) {
     this.graph.removePoint(point);
     this.hovered = null;
-    this.selected = null;
+    if (this.selected == point) {
+      this.selected = null;
+    }
   }
 
   display() {
