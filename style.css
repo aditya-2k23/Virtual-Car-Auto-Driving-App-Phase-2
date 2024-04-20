@@ -28,7 +28,7 @@ button {
   border-radius: 6px;
   text-shadow: 2px 2px 6px black;
   cursor: pointer;
-  transition: all 0.3s;
+  transition: all 0.1s;
 }
 
 button:hover {
@@ -37,5 +37,5 @@ button:hover {
 
 button:active {
   background-color: rgba(34, 170, 86, 0.7);
-  transform: translateY(-2px);
+  transform: translateY(-5px);
 }
