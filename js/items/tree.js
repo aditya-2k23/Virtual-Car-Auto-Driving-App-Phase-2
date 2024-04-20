@@ -3,13 +3,15 @@ class Tree {
     this.center = center;
     this.size = size; // size of the base
     this.heightCoef = heightCoef;
+    this.base = this.#generateLevel(center, size);
   }
 
   #generateLevel(point, size) {
     const points = [];
     const rad = size / 2;
     for (let a = 0; a < Math.PI * 2; a += Math.PI / 16) {
-      const noisyRadius = rad * lerp(0.5, 1, Math.random());
+      const kindOfRandom = Math.cos(((a + this.center.x) * size) % 17) ** 2; // Dr. Radu's magic right here... :D
+      const noisyRadius = rad * lerp(0.5, 1, kindOfRandom);
       points.push(translate(point, a, noisyRadius));
     }
 
@@ -30,5 +32,6 @@ class Tree {
       const poly = this.#generateLevel(point, size);
       poly.draw(ctx, { fill: color, stroke: "rgba(0,0,0,0)" });
     }
+    this.base.draw(ctx);
   }
 }
