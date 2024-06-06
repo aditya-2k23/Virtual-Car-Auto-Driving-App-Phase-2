@@ -18,17 +18,15 @@ class GraphEditor {
 
   disable() {
     this.#removeEventListeners();
+    this.selected = false;
+    this.hovered = false;
   }
 
   #addEventListeners() {
     this.boundMouseDown = this.#handleMouseDown.bind(this);
     this.boundMouseMove = this.#handleMouseMove.bind(this);
-    this.boundMouseUp = () => {
-      this.dragging = false;
-    };
-    this.boundContextMenu = (evt) => {
-      evt.preventDefault();
-    };
+    this.boundMouseUp = () => (this.dragging = false);
+    this.boundContextMenu = (evt) => evt.preventDefault();
     this.canvas.addEventListener("mousedown", this.boundMouseDown);
     this.canvas.addEventListener("mousemove", this.boundMouseMove);
     this.canvas.addEventListener("mouseup", this.boundMouseUp);
@@ -39,6 +37,7 @@ class GraphEditor {
     this.canvas.removeEventListener("mousedown", this.boundMouseDown);
     this.canvas.removeEventListener("mousemove", this.boundMouseMove);
     this.canvas.removeEventListener("mouseup", this.boundMouseUp);
+    this.canvas.removeEventListener("contextmenu", this.boundContextMenu);
   }
 
   #handleMouseMove(evt) {
@@ -48,7 +47,7 @@ class GraphEditor {
       this.graph.points,
       10 * this.viewport.zoom
     );
-    if (this.dragging) {
+    if (this.dragging == true) {
       this.selected.x = this.mouse.x;
       this.selected.y = this.mouse.y;
     }
@@ -104,7 +103,7 @@ class GraphEditor {
     }
     if (this.selected) {
       const intent = this.hovered ? this.hovered : this.mouse;
-      new Segment(this.selected, intent).draw(ctx, { dash: [9, 3] });
+      new Segment(this.selected, intent).draw(ctx, { dash: [3, 3] });
       this.selected.draw(this.ctx, { outline: true });
     }
   }
