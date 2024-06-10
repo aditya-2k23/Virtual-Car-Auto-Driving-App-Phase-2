@@ -1,47 +1,36 @@
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
 body {
-  background-color: black;
-  text-align: center;
+  margin: 0;
+  background-color: darkgray;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-h1 {
-  color: white;
-  font-family: Arial, sans-serif;
-  margin: 0.8rem;
+#verticalButtons {
+  display: flex;
+  flex-direction: column;
 }
 
-#myCanvas {
-  background-color: #2a5;
-}
-
-button,
-.file-input-label {
-  display: inline-block;
-  margin: 8px 3px 8px 3px;
-  font-size: 1.5rem;
-  padding: 5px 7px 5px 7px;
-  background-color: #22aa56e6;
+button {
   border: none;
-  border-radius: 6px;
-  text-shadow: 2px 2px 6px black;
+  border-radius: 5px;
+  padding: 5px 5px 7px 5px;
+  margin: 5px 10px;
+  font-size: 1.4rem;
   cursor: pointer;
-  transition: all 0.1s;
+  background-color: rgb(7, 218, 7);
+  transition: all 0.3s ease;
 }
 
 button:hover {
-  background-color: rgba(34, 170, 86, 0.8);
+  background-color: lightgreen;
 }
 
-button:active {
-  background-color: rgba(34, 170, 86, 0.7);
-  transform: translateY(-5px);
+#networkCanvas {
+  background-color: black;
 }
 
-input[type="file"] {
-  display: none;
+#carCanvas {
+  background-color: lightgray;
 }
