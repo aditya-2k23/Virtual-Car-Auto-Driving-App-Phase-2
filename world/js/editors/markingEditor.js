@@ -29,9 +29,7 @@ class MarkingEditor {
   #addEventListeners() {
     this.boundMouseDown = this.#handleMouseDown.bind(this);
     this.boundMouseMove = this.#handleMouseMove.bind(this);
-    this.boundContextMenu = (evt) => {
-      evt.preventDefault();
-    };
+    this.boundContextMenu = (evt) => evt.preventDefault();
     this.canvas.addEventListener("mousedown", this.boundMouseDown);
     this.canvas.addEventListener("mousemove", this.boundMouseMove);
     this.canvas.addEventListener("contextmenu", this.boundContextMenu);
