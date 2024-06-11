@@ -80,7 +80,7 @@ function animate(time) {
   world.draw(carCtx, viewPoint, false);
 
   for (let i = 0; i < traffic.length; i++) {
-    traffic[i].draw(carCtx, "red");
+    traffic[i].draw(carCtx);
   }
 
   networkCtx.lineDashOffset = -time / 50;
