@@ -6,7 +6,7 @@ class Car {
     height,
     controlType,
     angle = 0,
-    maxSpeed = 6,
+    maxSpeed = 5,
     color = "blue"
   ) {
     this.x = x;
@@ -15,7 +15,7 @@ class Car {
     this.height = height;
 
     this.speed = 0;
-    this.acceleration = 0.5;
+    this.acceleration = 0.3;
     this.maxSpeed = maxSpeed;
     this.friction = 0.05;
     this.angle = angle;
@@ -35,8 +35,8 @@ class Car {
     this.img.src = "car.png";
 
     this.mask = document.createElement("canvas");
-    this.mask.width = this.width;
-    this.mask.height = this.height;
+    this.mask.width = width;
+    this.mask.height = height;
 
     const maskCtx = this.mask.getContext("2d");
     this.img.onload = () => {
@@ -164,8 +164,8 @@ class Car {
         this.width,
         this.height
       );
+      ctx.globalCompositeOperation = "multiply";
     }
-    ctx.globalCompositeOperation = "multiply";
     ctx.drawImage(
       this.img,
       -this.width / 2,
