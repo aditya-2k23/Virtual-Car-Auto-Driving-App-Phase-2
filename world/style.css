@@ -12,18 +12,18 @@ body {
 h1 {
   color: white;
   font-family: Arial, sans-serif;
-  margin: 1rem;
+  margin: 0.6rem;
 }
 
 #myCanvas {
   background-color: #2a5;
-  margin-bottom: 1rem;
+  margin-bottom: 0.6rem;
 }
 
 button,
 .file-input-label {
   display: inline-block;
-  margin: 8px 3px 0 3px;
+  margin: 3px 3px 0px 3px;
   font-size: 1.5rem;
   padding: 5px 7px 5px 7px;
   background-color: #22aa56e6;
